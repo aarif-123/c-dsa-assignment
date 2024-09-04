@@ -1,0 +1,95 @@
+//q1:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2, num3;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+    cout << "Enter the third number: ";
+    cin >> num3;
+
+    int largest;
+    if (num1 >= num2 && num1 >= num3) {
+        largest = num1;
+    } else if (num2 >= num1 && num2 >= num3) {
+        largest = num2;
+    } else {
+        largest = num3;
+    }
+
+    cout << "The largest number is: " << largest << endl;
+
+    return 0;
+}
+
+
+
+
+//q2:
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int score;
+    cout << "Enter the score: ";
+    cin >> score;
+
+    char grade;
+    if (score >= 90 && score <= 100) {
+        grade = 'A';
+    } else if (score >= 80 && score < 90) {
+        grade = 'B';
+    } else if (score >= 70 && score < 80) {
+        grade = 'C';
+    } else if (score >= 60 && score < 70) {
+        grade = 'D';
+    } else if (score >= 0 && score < 60) {
+        grade = 'F';
+    } else {
+        cout << "Invalid score" << endl;
+        return 0;
+    }
+
+    cout << "Grade: " << grade << endl;
+
+    return 0;
+}
+
+
+
+//q3:
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int month;
+    cout << "Enter a number: ";
+    cin >> month;
+
+    switch(month) {
+        case 1: cout << "The month is: January" << endl; break;
+        case 2: cout << "The month is: February" << endl; break;
+        case 3: cout << "The month is: March" << endl; break;
+        case 4: cout << "The month is: April" << endl; break;
+        case 5: cout << "The month is: May" << endl; break;
+        case 6: cout << "The month is: June" << endl; break;
+        case 7: cout << "The month is: July" << endl; break;
+        case 8: cout << "The month is: August" << endl; break;
+        case 9: cout << "The month is: September" << endl; break;
+        case 10: cout << "The month is: October" << endl; break;
+        case 11: cout << "The month is: November" << endl; break;
+        case 12: cout << "The month is: December" << endl; break;
+        default: cout << "Invalid month" << endl; break;
+    }
+
+    return 0;
+}
