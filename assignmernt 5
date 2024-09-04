@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+void checkOddEven(int number) {
+    if (number % 2 == 0) {
+        cout << "Even" << endl;
+    } else {
+        cout << "Odd" << endl;
+    }
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    checkOddEven(num);
+
+    return 0;
+}
+
+
+
+
+
+
+//q2
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string reverseString(string str) {
+    int n = str.length();
+    for (int i = 0; i < n / 2; i++) {
+        swap(str[i], str[n - i - 1]);
+    }
+    return str;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    string reversedString = reverseString(input);
+    cout << "Reversed string: " << reversedString << endl;
+
+    return 0;
+}
+
+
+
+//q3
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void countVowelsConsonants(string str) {
+    int vowels = 0, consonants = 0;
+    for (char c : str) {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            vowels++;
+        } else {
+            consonants++;
+        }
+    }
+    cout << "Number of vowels: " << vowels << endl;
+    cout << "Number of consonants: " << consonants << endl;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    countVowelsConsonants(input);
+
+    return 0;
+}
