@@ -1,0 +1,72 @@
+// q1/
+
+#include <iostream>
+using namespace std;
+
+int findMax(const int arr[], int size) {
+    int maxVal = arr[0];  // Assume the first element is the maximum
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];  // Update maxVal if a larger value is found
+        }
+    }
+    return maxVal;
+}
+
+int main() {
+    int arr[] = {1, 5, 3, 9, 2};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    // Testing the findMax function
+    cout << "Maximum value in the array is: " << findMax(arr, size) << endl;
+
+    return 0;
+}
+
+
+
+// q2/
+
+#include <iostream>
+#include <string>
+#include <cctype>  // For tolower() and isalnum()
+using namespace std;
+
+bool isPalindrome(const string &str) {
+    int left = 0;
+    int right = str.length() - 1;
+
+    while (left < right) {
+        // Move left index forward if current character is not alphanumeric
+        while (left < right && !isalnum(str[left])) {
+            left++;
+        }
+        // Move right index backward if current character is not alphanumeric
+        while (left < right && !isalnum(str[right])) {
+            right--;
+        }
+        // Compare the characters (ignoring case)
+        if (tolower(str[left]) != tolower(str[right])) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+int main() {
+    string input = "A man, a plan, a canal, Panama";
+
+    // Testing the isPalindrome function
+    if (isPalindrome(input)) {
+        cout << "The string is a palindrome." << endl;
+    } else {
+        cout << "The string is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+

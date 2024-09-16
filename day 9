@@ -1,0 +1,48 @@
+// q1
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 42;          // Declare and initialize an integer variable
+    int* ptr = &num;       // Declare a pointer and store the address of 'num'
+    
+    // Print the value of the variable using both the variable itself and the pointer
+    cout << "Value of num using the variable: " << num << endl;
+    cout << "Value of num using the pointer: " << *ptr << endl;
+
+    return 0;
+}
+
+// q2
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};  // Declare an array of integers
+    int* ptr = arr;                    // Pointer points to the first element of the array
+    
+    // Use pointer arithmetic to print all the elements of the array
+    for (int i = 0; i < 5; i++) {
+        cout << "Element " << i + 1 << ": " << *(ptr + i) << endl;
+    }
+
+    return 0;
+}
+
+// q3
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 100;           // Declare an integer variable
+    int* ptr = &num;         // Pointer to the integer
+    int** ptrPtr = &ptr;     // Pointer to the pointer
+    
+    // Print the value of the integer using the variable, pointer, and pointer to pointer
+    cout << "Value of num using the variable: " << num << endl;
+    cout << "Value of num using the pointer: " << *ptr << endl;
+    cout << "Value of num using the pointer to pointer: " << **ptrPtr << endl;
+
+    return 0;
+}

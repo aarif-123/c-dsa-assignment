@@ -1,0 +1,98 @@
+// Day - 12 Questions - Week-03 (August 30th, 2024)
+// Ques 1 : Write a function void printLinkedList(Node* head) that traverses a singly linked list and prints each element's value. Input: A linked list with elements 10 -> 20 -> 30 -> 40
+// Output: 10 20 30 40
+
+// Ques 2: Write a function void insertAtEnd(Node*& head, int data) that inserts a new node with the given data at the end of a singly linked list. nput: A linked list with elements 10 -> 20 -> 30, and a new data 40
+// Output: The linked list becomes 10 -> 20 -> 30 -> 40
+
+
+// q1/
+
+#include <iostream>
+using namespace std;
+
+// Define the structure of a Node
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Function to print the elements of the linked list
+void printLinkedList(Node* head) {
+    Node* current = head;
+    
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->next;  // Move to the next node
+    }
+    cout << endl;
+}
+
+int main() {
+    // Manually creating a linked list: 10 -> 20 -> 30 -> 40
+    Node* head = new Node{10, nullptr};
+    head->next = new Node{20, nullptr};
+    head->next->next = new Node{30, nullptr};
+    head->next->next->next = new Node{40, nullptr};
+    
+    // Test the printLinkedList function
+    printLinkedList(head);
+
+    return 0;
+}
+
+
+
+
+// q2/
+#include <iostream>
+using namespace std;
+
+// Define the structure of a Node
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Function to insert a new node at the end of the linked list
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = new Node{data, nullptr};
+    
+    if (head == nullptr) {
+        // If the list is empty, the new node becomes the head
+        head = newNode;
+    } else {
+        // Traverse to the end of the list
+        Node* current = head;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = newNode;  // Insert the new node at the end
+    }
+}
+
+// Function to print the elements of the linked list
+void printLinkedList(Node* head) {
+    Node* current = head;
+    
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->next;  // Move to the next node
+    }
+    cout << endl;
+}
+
+int main() {
+    // Creating a linked list: 10 -> 20 -> 30
+    Node* head = new Node{10, nullptr};
+    head->next = new Node{20, nullptr};
+    head->next->next = new Node{30, nullptr};
+    
+    // Insert a new node with value 40 at the end
+    insertAtEnd(head, 40);
+    
+    // Test the printLinkedList function after insertion
+    printLinkedList(head);
+
+    return 0;
+}
