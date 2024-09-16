@@ -1,0 +1,67 @@
+// q1
+
+#include <iostream>
+#include <string>
+
+int stringLength(const std::string &str) {
+    return str.length();  // Use the length() method to return string length
+}
+
+int main() {
+    std::string str1 = "Hello, World!";
+    
+    // Testing the stringLength function
+    std::cout << "Length of the string '" << str1 << "' is: " << stringLength(str1) << std::endl;
+
+    return 0;
+}
+
+
+// q2
+
+
+#include <iostream>
+#include <string>
+
+int countCharacter(const std::string &str, char ch) {
+    int count = 0;
+    
+    // Loop through each character of the string and count occurrences of 'ch'
+    for (char c : str) {
+        if (c == ch) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+int main() {
+    std::string str = "Hello, World!";
+    char character = 'l';
+    
+    // Testing the countCharacter function
+    std::cout << "The character '" << character << "' appears " << countCharacter(str, character) << " times in the string." << std::endl;
+
+    return 0;
+}
+
+
+//q3
+
+#include <iostream>
+#include <string>
+
+std::string concatenateStrings(const std::string &str1, const std::string &str2) {
+    return str1 + str2;  // Use the + operator to concatenate strings
+}
+
+int main() {
+    std::string str1 = "Hello, ";
+    std::string str2 = "World!";
+    
+    // Testing the concatenateStrings function
+    std::cout << "Concatenated string: " << concatenateStrings(str1, str2) << std::endl;
+
+    return 0;
+}
