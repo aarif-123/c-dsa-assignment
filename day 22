@@ -1,0 +1,178 @@
+
+
+// q1
+#include <iostream>
+using namespace std;
+
+class Stack {
+private:
+    int top;           // Index of the top element
+    int maxSize;       // Maximum size of the stack
+    int* arr;          // Dynamic array to store stack elements
+
+public:
+    // Constructor to initialize the stack
+    Stack(int size) {
+        maxSize = size;
+        arr = new int[maxSize];  // Dynamically allocate array
+        top = -1;  // Initialize the stack as empty
+    }
+
+    // Destructor to free the allocated memory
+    ~Stack() {
+        delete[] arr;
+    }
+
+    // Function to add an element to the stack
+    void push(int x) {
+        if (top == maxSize - 1) {
+            cout << "Stack overflow. Cannot push more elements.\n";
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    // Function to remove an element from the stack
+    void pop() {
+        if (top == -1) {
+            cout << "Stack underflow. No elements to pop.\n";
+            return;
+        }
+        cout << "Popped element: " << arr[top--] << endl;
+    }
+
+    // Function to get the top element of the stack
+    int peek() {
+        if (top == -1) {
+            cout << "Stack is empty.\n";
+            return -1;
+        }
+        return arr[top];
+    }
+
+    // Function to check if the stack is empty
+    bool isEmpty() {
+        return top == -1;
+    }
+
+    // Function to display stack elements
+    void display() {
+        if (top == -1) {
+            cout << "Stack is empty.\n";
+            return;
+        }
+        cout << "Stack elements: ";
+        for (int i = top; i >= 0; i--) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    int size;
+
+    // Get the stack size from the user
+    cout << "Enter the size of the stack: ";
+    cin >> size;
+
+    Stack stack(size);
+
+    // Push some elements onto the stack
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    // Display stack elements
+    stack.display();
+
+    // Peek the top element
+    cout << "Top element: " << stack.peek() << endl;
+
+    // Pop elements from the stack
+    stack.pop();
+    stack.display();
+
+    return 0;
+}
+
+
+
+
+
+
+
+// q2
+
+#include <iostream>
+using namespace std;
+
+class Stack {
+private:
+    int top;
+    int maxSize;
+    int* arr;
+
+public:
+    // Constructor to initialize stack
+    Stack(int size) {
+        maxSize = size;
+        arr = new int[maxSize];
+        top = -1;
+    }
+
+    // Destructor to free allocated memory
+    ~Stack() {
+        delete[] arr;
+    }
+
+    // Function to push an element into the stack
+    void push(int x) {
+        if (top == maxSize - 1) {
+            cout << "Stack overflow. Cannot push more elements.\n";
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    // Function to pop and return the top element
+    int pop() {
+        if (top == -1) {
+            cout << "Stack underflow. No elements to pop.\n";
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    // Function to check if the stack is empty
+    bool isEmpty() {
+        return top == -1;
+    }
+};
+
+int main() {
+    int n;
+    
+    // Take input for number of elements
+    cout << "Enter the number of elements to push into the stack: ";
+    cin >> n;
+
+    Stack stack(n);
+
+    // Push elements into the stack
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        stack.push(value);
+    }
+
+    // Pop all elements and print them
+    cout << "Popping elements in reverse order: ";
+    while (!stack.isEmpty()) {
+        cout << stack.pop() << " ";
+    }
+    cout << endl;
+
+    return 0;
+}

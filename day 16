@@ -1,0 +1,94 @@
+#include <iostream>
+using namespace std;
+
+// Node structure for linked list
+struct Node {
+    int data;
+    Node* next;
+    
+    Node(int val) : data(val), next(nullptr) {} // Constructor to initialize a node
+};
+
+// Function to insert a new value into the sorted linked list
+Node* insertInSortedOrder(Node* head, int value) {
+    Node* newNode = new Node(value); // Create a new node with the given value
+
+    // If the list is empty or the new value is less than the head's value
+    if (head == nullptr || head->data >= value) {
+        newNode->next = head; // Insert the new node before the head
+        return newNode; // Return the new head
+    }
+
+    Node* current = head; // Pointer to traverse the linked list
+
+    // Find the correct position to insert the new node
+    while (current->next != nullptr && current->next->data < value) {
+        current = current->next; // Move to the next node
+    }
+
+    // Insert the new node at the correct position
+    newNode->next = current->next; // Link new node to the next node
+    current->next = newNode; // Link current node to the new node
+
+    return head; // Return the original head of the list
+}
+
+// Function to print the linked list
+void printLinkedList(Node* head) {
+    Node* current = head; // Pointer to traverse the linked list
+    while (current != nullptr) {
+        cout << current->data;
+        if (current->next != nullptr) {
+            cout << "->"; // Print arrow between nodes
+        }
+        current = current->next; // Move to the next node
+    }
+    cout << endl; // New line after printing the list
+}
+
+int main() {
+    int n, value;
+
+    // Take the number of elements in the linked list
+    cout << "Enter the number of elements in the linked list: ";
+    cin >> n;
+
+    Node* head = nullptr; // Initialize the head of the linked list
+    Node* tail = nullptr; // Initialize the tail of the linked list
+
+    // Input sorted linked list from user
+    cout << "Enter the sorted elements of the linked list: ";
+    for (int i = 0; i < n; ++i) {
+        int val;
+        cin >> val; // Take element input
+        Node* newNode = new Node(val); // Create a new node
+        if (head == nullptr) {
+            head = newNode; // Set head if list is empty
+            tail = newNode; // Set tail
+        } else {
+            tail->next = newNode; // Link new node to tail
+            tail = newNode; // Move tail to new node
+        }
+    }
+
+    // Take the value to be inserted
+    cout << "Enter the value to be inserted: ";
+    cin >> value;
+
+    // Insert value into the sorted linked list
+    head = insertInSortedOrder(head, value);
+
+    // Print the updated linked list
+    cout << "Updated linked list: ";
+    printLinkedList(head);
+
+    // Clean up memory
+    Node* current = head;
+    while (current != nullptr) {
+        Node* temp = current;
+        current = current->next;
+        delete temp; // Free memory for each node
+    }
+
+    return 0;
+}

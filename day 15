@@ -1,0 +1,142 @@
+// q1
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    // Constructor to initialize student details
+    Student(string name, int age) : name(name), age(age) {}
+
+    // Method to display student details using 'this' pointer
+    void displayDetails() {
+        cout << "Student Name: " << this->name << endl;
+        cout << "Student Age: " << this->age << endl;
+    }
+};
+
+int main() {
+    string name;
+    int age;
+
+    // Input student details
+    cout << "Enter student name: ";
+    getline(cin, name);
+    cout << "Enter student age: ";
+    cin >> age;
+
+    // Create a Student object
+    Student student(name, age);
+
+    // Display student details
+    student.displayDetails();
+
+    return 0;
+}
+
+
+
+// q2
+
+#include <iostream>
+using namespace std;
+
+// Node structure for linked list
+struct Node {
+    int data;
+    Node* next;
+    
+    Node(int val) : data(val), next(nullptr) {} // Constructor to initialize a node
+};
+
+// Function to delete a node from the linked list
+Node* deleteValue(Node* head, int value) {
+    // Handle case where head needs to be deleted
+    while (head != nullptr && head->data == value) {
+        Node* temp = head;
+        head = head->next; // Move head to the next node
+        delete temp; // Free memory
+    }
+
+    // Handle case for deleting other nodes
+    Node* current = head;
+    Node* previous = nullptr;
+
+    while (current != nullptr) {
+        if (current->data == value) {
+            previous->next = current->next; // Bypass the current node
+            delete current; // Free memory
+            current = previous->next; // Move current to next node
+        } else {
+            previous = current; // Move previous to current
+            current = current->next; // Move current to next
+        }
+    }
+
+    return head; // Return the new head of the linked list
+}
+
+// Function to print the linked list
+void printLinkedList(Node* head) {
+    Node* current = head; // Pointer to traverse the linked list
+    while (current != nullptr) {
+        cout << current->data;
+        if (current->next != nullptr) {
+            cout << "->"; // Print arrow between nodes
+        }
+        current = current->next; // Move to the next node
+    }
+    cout << endl; // New line after printing the list
+}
+
+int main() {
+    int n, value;
+
+    // Take the number of elements in the linked list
+    cout << "Enter the number of elements in the linked list: ";
+    cin >> n;
+
+    Node* head = nullptr; // Initialize the head of the linked list
+    Node* tail = nullptr; // Initialize the tail of the linked list
+
+    // Input linked list from user
+    cout << "Enter the elements of the linked list: ";
+    for (int i = 0; i < n; ++i) {
+        int val;
+        cin >> val; // Take element input
+        Node* newNode = new Node(val); // Create a new node
+        if (head == nullptr) {
+            head = newNode; // Set head if list is empty
+            tail = newNode; // Set tail
+        } else {
+            tail->next = newNode; // Link new node to tail
+            tail = newNode; // Move tail to new node
+        }
+    }
+
+    // Take the value to be deleted
+    cout << "Enter the value to be deleted: ";
+    cin >> value;
+
+    // Delete value from the linked list
+    head = deleteValue(head, value);
+
+    // Print the updated linked list
+    cout << "Updated linked list: ";
+    printLinkedList(head);
+
+    // Clean up memory
+    Node* current = head;
+    while (current != nullptr) {
+        Node* temp = current;
+        current = current->next;
+        delete temp; // Free memory for each node
+    }
+
+    return 0;
+}

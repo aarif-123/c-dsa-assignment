@@ -1,0 +1,48 @@
+/*
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to find the maximum number of consecutive ones
+int findMaxConsecutiveOnes(vector<int>& arr) {
+    int maxCount = 0;  // To store the maximum count of consecutive ones
+    int count = 0;     // To count consecutive ones in the current sequence
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == 1) {
+            count++;  // Increment count if 1 is found
+        } else {
+            maxCount = max(maxCount, count);  // Update maxCount if needed
+            count = 0;  // Reset count when 0 is encountered
+        }
+    }
+
+    // After the loop, check if the last sequence of 1's was the maximum
+    maxCount = max(maxCount, count);
+    return maxCount;
+}
+
+int main() {
+    int n;
+    
+    // Take input size of the array
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    
+    vector<int> arr(n);
+
+    // Take input elements of the array
+    cout << "Enter the binary array elements (0s and 1s): ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Find and print the maximum number of consecutive ones
+    int result = findMaxConsecutiveOnes(arr);
+    cout << "Maximum number of consecutive ones: " << result << endl;
+
+    return 0;
+}
+
+*/
+

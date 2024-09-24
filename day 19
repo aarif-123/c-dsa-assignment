@@ -1,0 +1,82 @@
+// q1
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    // File name
+    string filename = "details.txt";
+
+    // User details
+    string name;
+    int age;
+    string email;
+
+    // Take user input
+    cout << "Enter your name: ";
+    getline(cin, name);
+    cout << "Enter your age: ";
+    cin >> age;
+    cin.ignore();  // To ignore the newline character left in the input buffer
+    cout << "Enter your email: ";
+    getline(cin, email);
+
+    // Write details to the file
+    ofstream outFile(filename);
+    if (outFile.is_open()) {
+        outFile << "Name: " << name << endl;
+        outFile << "Age: " << age << endl;
+        outFile << "Email: " << email << endl;
+        outFile.close();
+        cout << "Details written to " << filename << endl;
+    } else {
+        cout << "Unable to open file for writing." << endl;
+    }
+
+    // Read and print details from the file
+    string line;
+    ifstream inFile(filename);
+    if (inFile.is_open()) {
+        cout << "\nDetails from the file:\n";
+        while (getline(inFile, line)) {
+            cout << line << endl;
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file for reading." << endl;
+    }
+
+    return 0;
+}
+
+
+// q2
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    // File name
+    string filename = "sample.txt";
+
+    // Read and print contents from the file
+    string line;
+    ifstream inFile(filename);
+    if (inFile.is_open()) {
+        cout << "Contents of " << filename << ":\n";
+        while (getline(inFile, line)) {
+            cout << line << endl;
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file for reading." << endl;
+    }
+
+    return 0;
+}
+
+
+

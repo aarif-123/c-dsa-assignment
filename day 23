@@ -1,0 +1,112 @@
+
+// q1
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// bool isSumPresent_BruteForce(vector<int>& arr, int target) {
+//     int n = arr.size();
+    
+//     // Check all pairs of elements
+//     for (int i = 0; i < n; i++) {
+//         for (int j = i + 1; j < n; j++) {
+//             if (arr[i] + arr[j] == target) {
+//                 return true;  // Found a pair
+//             }
+//         }
+//     }
+    
+//     return false;  // No pair found
+// }
+
+// int main() {
+//     int n, target;
+    
+//     // Input number of elements
+//     cout << "Enter the number of elements in the array: ";
+//     cin >> n;
+
+//     vector<int> arr(n);
+    
+//     // Input the array elements
+//     cout << "Enter the array elements: ";
+//     for (int i = 0; i < n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     // Input the target
+//     cout << "Enter the target sum: ";
+//     cin >> target;
+    
+//     // Brute-force solution
+//     if (isSumPresent_BruteForce(arr, target)) {
+//         cout << "YES" << endl;
+//     } else {
+//         cout << "NO" << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
+// q2
+
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// bool isSumPresent_Optimized(vector<int>& arr, int target) {
+//     // Sort the array
+//     sort(arr.begin(), arr.end());
+
+//     int left = 0;
+//     int right = arr.size() - 1;
+
+//     // Use two pointers to find the target sum
+//     while (left < right) {
+//         int sum = arr[left] + arr[right];
+
+//         if (sum == target) {
+//             return true;  // Found a pair
+//         }
+//         else if (sum < target) {
+//             left++;  // Move the left pointer to increase the sum
+//         }
+//         else {
+//             right--;  // Move the right pointer to decrease the sum
+//         }
+//     }
+
+//     return false;  // No pair found
+// }
+
+// int main() {
+//     int n, target;
+
+//     // Input number of elements
+//     cout << "Enter the number of elements in the array: ";
+//     cin >> n;
+
+//     vector<int> arr(n);
+    
+//     // Input the array elements
+//     cout << "Enter the array elements: ";
+//     for (int i = 0; i < n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     // Input the target
+//     cout << "Enter the target sum: ";
+//     cin >> target;
+    
+//     // Optimized solution
+//     if (isSumPresent_Optimized(arr, target)) {
+//         cout << "YES" << endl;
+//     } else {
+//         cout << "NO" << endl;
+//     }
+
+//     return 0;
+// }

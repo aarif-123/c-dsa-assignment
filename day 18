@@ -1,0 +1,44 @@
+// q1
+#include <iostream>
+#include <string>
+#include <tuple>
+using namespace std;
+
+// Person class definition
+class Person {
+private:
+    string firstName;
+    string lastName;
+    int age;
+
+public:
+    // Constructor
+    Person(const string& first, const string& last, int age)
+        : firstName(first), lastName(last), age(age) {}
+
+    // Method to get full name
+    string getFullName() const {
+        return firstName + " " + lastName;
+    }
+
+    // Method to get details as a tuple
+    tuple<string, string, int> getDetails() const {
+        return make_tuple(firstName, lastName, age);
+    }
+};
+
+int main() {
+    // Create a Person object
+    Person person("John", "Doe", 30);
+
+    // Print full name
+    cout << "Full Name: " << person.getFullName() << endl;
+
+    // Get details and unpack using structured bindings
+    auto [first, last, age] = person.getDetails();
+    cout << "First Name: " << first << endl;
+    cout << "Last Name: " << last << endl;
+    cout << "Age: " << age << endl;
+
+    return 0;
+}
