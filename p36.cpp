@@ -13,7 +13,7 @@ int main() {
         for (int i = 0; i < n; ++i) {
             cin >> a[i];
         }
-        // The optimal answer is the maximum element because Turtle can eventually move it to the front
+         
         cout << *max_element(a.begin(), a.end()) << endl;
     }
     return 0;
