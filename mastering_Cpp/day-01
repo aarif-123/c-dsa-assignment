@@ -20,7 +20,8 @@ void findMinMax(const vector<int>& arr, int& minElement, int& maxElement) {
                 if (arr[i] < minElement) minElement = arr[i];
             }
         }
-    } else { // If odd number of elements
+    } else { 
+    // here we defined that  what to do if element is odd
         minElement = maxElement = arr[0];
         for (int i = 1; i < arr.size(); ++i) {
             if (arr[i] > maxElement) {
