@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // For std::min_element and std::max_element
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Enter the size of the array: ";
+    cin >> N;
+
+    vector<int> arr(N);
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < N; ++i) {
+        cin >> arr[i];
+    }
+
+    int minElement = *min_element(arr.begin(), arr.end());
+    int maxElement = *max_element(arr.begin(), arr.end());
+
+    cout << "Minimum element is: " << minElement << endl;
+    cout << "Maximum element is: " << maxElement << endl;
+
+    return 0;
+}
