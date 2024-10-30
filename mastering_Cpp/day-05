@@ -14,9 +14,8 @@
 
 #include <iostream>
 
-
-
 using namespace std;
+
 
 void minHeapify(int heap[], int size, int root) {
     int smallest = root;
